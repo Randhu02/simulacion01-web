@@ -1,45 +1,115 @@
+/* Fondo y tipografía */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background: url('img/buque-de-carga-en-el-puerto-durante-la-puesta-del-sol.jpg') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
-    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    padding-top: 100px; /* espacio para header */
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
+/* Header fijo */
+header {
+    background-color: #004d40;
+    padding: 20px 0;
     text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-h1 {
-    color: #333;
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.menu {
-    margin-bottom: 20px;
+/* Filtros */
+.filtros {
+    background-color: rgba(0, 77, 64, 0.85);
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px auto 40px auto;
+    max-width: 1200px;
 }
 
-select, button {
-    padding: 8px 12px;
-    margin: 0 5px;
-    font-size: 16px;
+label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #fff;
+    align-self: center;
 }
 
-button {
-    background-color: #007bff;
-    color: white;
+/* Selects */
+select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
+    background-color: #00695c;
+    color: #fff;
+    min-width: 180px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover,
+select:focus {
+    background-color: #004d40;
+    box-shadow: 0 0 8px #004d40;
+    outline: none;
+}
+
+/* Botón */
+button {
+    background-color: #00796b;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,121,107,0.6);
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #004d40;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,77,64,0.9);
 }
 
+/* Gráfico */
 #grafico {
     width: 100%;
     height: 600px;
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    padding: 10px;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    select, button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+

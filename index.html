@@ -8,29 +8,35 @@
     <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Simulación Corralón y Paneles 3D</h1>
 
-        <div class="menu">
-            <label for="producto">Producto:</label>
-            <select id="producto">
-                <option value="maiz">Maíz</option>
-                <option value="trigo">Trigo</option>
-                <option value="urea">Urea</option>
-            </select>
+<!-- Header fijo -->
+<header>
+    <h1>Simulación Corralón y Paneles 3D</h1>
+</header>
 
-            <label for="tipo">Tipo de gráfico:</label>
-            <select id="tipo">
-                <option value="corralon">Corralón</option>
-                <option value="paneles">Paneles</option>
-            </select>
+<!-- Filtros -->
+<div class="filtros">
+    <label for="producto">Producto:</label>
+    <select id="producto">
+        <option value="maiz">Maíz</option>
+        <option value="trigo">Trigo</option>
+        <option value="urea">Urea</option>
+    </select>
 
-            <button id="cargar">Cargar gráfico</button>
-        </div>
+    <label for="tipo">Tipo de gráfico:</label>
+    <select id="tipo">
+        <option value="corralon">Corralón</option>
+        <option value="paneles">Paneles</option>
+    </select>
 
-        <div id="grafico" style="width: 100%; height: 600px;"></div>
-    </div>
+    <button id="cargar">Cargar gráfico</button>
+</div>
 
-    <script src="plots.js"></script>
+<!-- Contenedor del gráfico -->
+<div id="grafico"></div>
+
+<script src="plots.js"></script>
 </body>
 </html>
+
+
