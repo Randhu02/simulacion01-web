@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Prediccion y Simulacion de Carga a Granel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+
+<!-- Header fijo -->
+<header>
+    <h1>Proyecto: Prediccion y Simulacion de Carga a Granel</h1>
+</header>
+
+<!-- Filtros -->
+<div class="filtros">
+    <label for="producto">Producto:</label>
+    <select id="producto">
+        <option value="maiz">Maíz</option>
+        <option value="trigo">Trigo</option>
+        <option value="urea">Urea</option>
+    </select>
+
+    <label for="tipo">Tipo de gráfico:</label>
+    <select id="tipo">
+        <option value="corralon">Corralón</option>
+        <option value="paneles">Paneles</option>
+    </select>
+
+    <button id="cargar">Cargar gráfico</button>
+</div>
+
+<!-- Contenedor del gráfico -->
+<div id="grafico"></div>
+
+<!-- Modal pantalla completa -->
+<div id="grafico-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.95); z-index:2000; justify-content:center; align-items:center; cursor:pointer;">
+    <div id="grafico-modal-contenido" style="width:95%; height:95%; margin:auto;"></div>
+</div>
+
+<script src="plots.js"></script>
+<script>
+    const graficoDiv = document.getElementById('grafico');
+    const modal = document.getElementById('grafico-modal');
+    const modalContenido = document.getElementById('grafico-modal-contenido');
+
+    document.getElementById('cargar').addEventListener('click', function() {
+        const producto = document.getElementById('producto').value;
+        const tipo = document.getElementById('tipo').value;
+
+        const archivo = `plots/${producto}_${tipo}.json`;
+
+        fetch(archivo)
+            .then(response => {
+                if (!response.ok) throw new Error('Archivo no encontrado');
+                return response.json();
+            })
+            .then(data => {
+                // Graficar en la página normal
+                Plotly.newPlot(graficoDiv, data.data, data.layout);
+
+                // Guardamos la data para modal
+                graficoDiv.dataset.plotData = JSON.stringify(data);
+            })
+            .catch(error => {
+                alert("No se pudo cargar el gráfico: " + error);
+            });
+    });
+
+    // Abrir modal al hacer clic en el gráfico
+    graficoDiv.addEventListener('click', () => {
+        const data = JSON.parse(graficoDiv.dataset.plotData || '{}');
+        if (Object.keys(data).length === 0) return;
+
+        modal.style.display = 'flex';
+        Plotly.newPlot(modalContenido, data.data, data.layout);
+    });
+
+    // Cerrar modal al hacer clic fuera del contenido
+    modal.addEventListener('click', e => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            modalContenido.innerHTML = ''; // Limpiar el gráfico del modal
+        }
+    });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+/* Fondo y tipografía */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('img/premium_photo-1661963131307-f79ad259ccfc.avif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Cuadro de login */
+.login-container {
+    background-color: rgba(0, 0, 0, 0.6); /* semitransparente */
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+/* Título */
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Inputs */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Checkbox Remember me */
+.remember {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    justify-content: flex-start;
+}
+
+.remember input {
+    margin-right: 8px;
+}
+
+/* Botón */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00796b;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,77,64,0.8);
+}
+
+/* Mensaje de error */
+.error {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+
+/* Opciones Mostrar contraseña */
+.options {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin: 10px 0;
+}
+
+.options input {
+    margin-right: 8px;
+}

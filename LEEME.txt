@@ -1,0 +1,17 @@
+# 1. Navega a tu carpeta del proyecto
+cd "C:\Users\Usuario\Desktop\PROYECTO TISUR\simulacion01-web"
+
+# 2. Inicializa git si aún no lo hiciste
+git init
+
+# 3. Añade todos los archivos al staging
+git add .
+
+# 4. Haz un commit con mensaje descriptivo
+git commit -m "Corregidos colores hex en Mesh3d para Plotly y ajustes para paneles"
+
+# 5. Añade el remote (solo si aún no lo hiciste)
+git remote add origin https://github.com/tuusuario/nombre-repo.git
+
+# 6. Envía los cambios al repositorio
+git push -u origin main

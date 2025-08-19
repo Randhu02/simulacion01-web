@@ -16,3 +16,4 @@ document.getElementById('cargar').addEventListener('click', function() {
             alert("No se pudo cargar el gráfico: " + error);
         });
 });
+
